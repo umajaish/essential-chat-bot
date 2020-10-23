@@ -1,0 +1,1066 @@
+{
+  "intents": [
+    {
+      "intent": "enquiry",
+      "examples": [
+        {
+          "text": "are medicines available"
+        },
+        {
+          "text": "food items are present"
+        },
+        {
+          "text": "general essentials"
+        },
+        {
+          "text": "price of vegetables"
+        },
+        {
+          "text": "what are options for covid essentials"
+        },
+        {
+          "text": "what are the items you have"
+        },
+        {
+          "text": "what are the offers"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greeting",
+      "examples": [
+        {
+          "text": "good afternoon"
+        },
+        {
+          "text": "good evening"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "information",
+      "examples": [
+        {
+          "text": "Please provde your name,Phone numbar and Email"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "order",
+      "examples": [
+        {
+          "text": "i want to buy"
+        },
+        {
+          "text": "i want to place order"
+        },
+        {
+          "text": "i want to purchase"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "payment",
+      "examples": [
+        {
+          "text": "what are the payment options"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "enquiry",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "cost",
+          "synonyms": [
+            "price",
+            "value"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "covid related",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "items",
+          "synonyms": [
+            "avaaible things",
+            "essentials",
+            "things"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "offers",
+          "synonyms": [
+            "deals",
+            "discounts"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "greeting",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "good afternoon",
+          "synonyms": [
+            "Ga",
+            "gd aftnoon"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "good evening",
+          "synonyms": [
+            "gd evng",
+            "GE "
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "good morning",
+          "synonyms": [
+            "gd mrng",
+            "gm"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "information",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "email",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "name",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "phonenumber",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "listofitems",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "bread",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "handwash",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "masks",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "medicines",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "napkins",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "sanitisers",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "veggies",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "order",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "buy",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "order",
+          "synonyms": [
+            "attempt"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "purchase",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "select",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "payment",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "card",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "cod",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "upi",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    },
+    {
+      "entity": "yesnoanswer",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_8_1602696015643",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1602696542528",
+      "context": {
+        "listofitems_handwash": "@listofitems"
+      },
+      "conditions": "@listofitems",
+      "event_name": "input",
+      "dialog_node": "handler_10_1602696542603"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1602697285723",
+      "context": {
+        "number": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_10_1602697285743"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Please provide your informattion ( name phonenumber and email )id "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1602782611563",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1602782611583",
+      "previous_sibling": "handler_2_1602782611583"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "may i take your order please "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602696015643",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1602696541184",
+      "previous_sibling": "node_6_1602771935687"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "which item do u want "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_9_1602696542528",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1602696542603",
+      "previous_sibling": "handler_10_1602696542603"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1602782611563",
+      "context": {
+        "information": "@information"
+      },
+      "conditions": "@information",
+      "event_name": "input",
+      "dialog_node": "handler_2_1602782611583"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "how many do u  want "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_10_1602697285723",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1602697285743",
+      "previous_sibling": "handler_10_1602697285743"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_1_1602697360596",
+      "context": {
+        "payment": "@payment"
+      },
+      "conditions": "@payment",
+      "event_name": "input",
+      "dialog_node": "handler_5_1602697360620"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "whats your mode of payment .we accept cod upi card"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_1_1602697360596",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1602697360620",
+      "previous_sibling": "handler_5_1602697360620"
+    },
+    {
+      "type": "standard",
+      "title": "Enquiry",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#enquiry || @enquiry",
+      "digress_in": "returns",
+      "dialog_node": "node_10_1602690946105",
+      "digress_out": "allow_all_never_return",
+      "previous_sibling": "node_9_1602689208492"
+    },
+    {
+      "type": "standard",
+      "title": "delete context",
+      "output": {
+        "deleted": "<?context.remove('items')?><?context.remove('number')?><?context.remove('payment')?>",
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602696015643",
+      "conditions": "true",
+      "dialog_node": "node_6_1602771935687"
+    },
+    {
+      "type": "standard",
+      "title": "cost of item ",
+      "parent": "node_10_1602690946105",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_8_1602696015643"
+      },
+      "conditions": "@enquiry:cost",
+      "dialog_node": "node_8_1602694831599"
+    },
+    {
+      "type": "frame",
+      "title": "order",
+      "output": {
+        "generic": [
+          {
+            "source": "https://images.myparkingsign.com/img/lg/K/thank-you-for-visiting-signature-sign-k2-0716.png",
+            "response_type": "image"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#order && @order",
+      "digress_in": "returns",
+      "dialog_node": "node_8_1602696015643",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_10_1602690946105",
+      "digress_out_slots": "allow_returning"
+    },
+    {
+      "type": "standard",
+      "title": "Greetings",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#greeting || @greeting",
+      "dialog_node": "node_9_1602689208492",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "information ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Please enter your information "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1602689208492",
+      "conditions": "#greeting || @greeting",
+      "dialog_node": "node_9_1602780710592"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "30"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:bread",
+      "dialog_node": "response_10_1602694958294"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "conditions": "",
+      "dialog_node": "response_10_1602735894422",
+      "previous_sibling": "response_3_1602689093841"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "200"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:handwash",
+      "dialog_node": "response_2_1602695001476",
+      "previous_sibling": "response_10_1602694958294"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "cost ",
+            "options": [
+              {
+                "label": "Bread ",
+                "value": {
+                  "input": {
+                    "text": " cost is 30"
+                  }
+                }
+              },
+              {
+                "label": "sanitiser",
+                "value": {
+                  "input": {
+                    "text": " cost is 200"
+                  }
+                }
+              },
+              {
+                "label": "handwash",
+                "value": {
+                  "input": {
+                    "text": " cost is 200"
+                  }
+                }
+              },
+              {
+                "label": "napkins",
+                "value": {
+                  "input": {
+                    "text": " cost is 100"
+                  }
+                }
+              },
+              {
+                "label": "veggies",
+                "value": {
+                  "input": {
+                    "text": " cost is 250"
+                  }
+                }
+              },
+              {
+                "label": "mask",
+                "value": {
+                  "input": {
+                    "text": " cost is 30"
+                  }
+                }
+              },
+              {
+                "label": "medicine",
+                "value": {
+                  "input": {
+                    "text": " cost is 150"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_10_1602690946105",
+      "conditions": "@enquiry:cost",
+      "dialog_node": "response_2_1602773025487",
+      "previous_sibling": "response_6_1602691130662"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "hi i am the chatbot how can i help you "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "conditions": "welcome",
+      "dialog_node": "response_3_1602689093841"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "30"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:(masks)",
+      "dialog_node": "response_3_1602695024191",
+      "previous_sibling": "response_2_1602695001476"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "150"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:medicines",
+      "dialog_node": "response_3_1602695048416",
+      "previous_sibling": "response_3_1602695024191"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "200"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:sanitisers",
+      "dialog_node": "response_3_1602695066544",
+      "previous_sibling": "response_3_1602695048416"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "hi"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1602689208492",
+      "conditions": "anything_else",
+      "dialog_node": "response_4_1602689796426",
+      "previous_sibling": "response_6_1602689679590"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "20% off on covid essntials "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "hand wash 1+1 free"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1602690946105",
+      "conditions": "@enquiry:offers",
+      "dialog_node": "response_4_1602691083992",
+      "previous_sibling": "node_8_1602694831599"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "good afternoon how can  i help you "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1602689208492",
+      "conditions": "@greeting:(good afternoon)",
+      "dialog_node": "response_6_1602689679590",
+      "previous_sibling": "response_8_1602689656635"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "covid essentials",
+            "source": "https://startagist.com/wp-content/uploads/2020/08/COVID-19-essentials-by-sense.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_10_1602690946105",
+      "conditions": "@enquiry:(covid related)",
+      "dialog_node": "response_6_1602691130662",
+      "previous_sibling": "response_8_1602691099814"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "good evening how can  i help you "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1602689208492",
+      "conditions": "@greeting:(good evening)",
+      "dialog_node": "response_8_1602689656635",
+      "previous_sibling": "response_9_1602689520183"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "different items",
+            "options": [
+              {
+                "label": "veggies",
+                "value": {
+                  "input": {
+                    "text": " cost is 250"
+                  }
+                }
+              },
+              {
+                "label": "medicines",
+                "value": {
+                  "input": {
+                    "text": " cost is 150"
+                  }
+                }
+              },
+              {
+                "label": "napkins",
+                "value": {
+                  "input": {
+                    "text": " cost is 100"
+                  }
+                }
+              },
+              {
+                "label": "sanitisers",
+                "value": {
+                  "input": {
+                    "text": " cost is 200"
+                  }
+                }
+              },
+              {
+                "label": "handwash",
+                "value": {
+                  "input": {
+                    "text": " cost is 200"
+                  }
+                }
+              },
+              {
+                "label": "bread",
+                "value": {
+                  "input": {
+                    "text": " cost is 30"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_10_1602690946105",
+      "conditions": "@enquiry:items",
+      "dialog_node": "response_8_1602691099814",
+      "previous_sibling": "response_4_1602691083992"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "good morning how can  i help you "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1602689208492",
+      "conditions": "@greeting:(good morning)",
+      "dialog_node": "response_9_1602689520183",
+      "previous_sibling": "node_9_1602780710592"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "100"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:napkins",
+      "dialog_node": "response_9_1602695091912",
+      "previous_sibling": "response_3_1602695066544"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "250"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1602694831599",
+      "conditions": "@listofitems:veggies",
+      "dialog_node": "response_9_1602695111164",
+      "previous_sibling": "response_9_1602695091912"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1602696015643",
+      "variable": "$number",
+      "dialog_node": "slot_10_1602697285723",
+      "previous_sibling": "slot_9_1602696542528"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_8_1602696015643",
+      "variable": "$payment",
+      "dialog_node": "slot_1_1602697360596",
+      "previous_sibling": "slot_10_1602697285723"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1602696015643",
+      "variable": "$information",
+      "dialog_node": "slot_4_1602782611563",
+      "previous_sibling": "slot_1_1602697360596"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1602696015643",
+      "variable": "$listofitems_handwash",
+      "dialog_node": "slot_9_1602696542528",
+      "previous_sibling": "handler_1_1602696541184"
+    },
+    {
+      "type": "standard",
+      "title": "welcome",
+      "actions": [
+        {
+          "name": "main_webhook",
+          "type": "webhook",
+          "parameters": {
+            "": ""
+          },
+          "result_variable": "webhook_result_1"
+        }
+      ],
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "UJ skill 1",
+  "language": "en",
+  "description": ""
+}
